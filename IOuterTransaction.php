@@ -8,4 +8,5 @@ interface IOuterTransaction
     public function isAwaitingGatewayResponse(): bool;
     public function getHash(): bool;
     public function isEnoughData(): bool;
+
 }

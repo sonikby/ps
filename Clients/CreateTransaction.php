@@ -6,7 +6,7 @@ class CreateTransaction extends AbstractCommand
 {
     const OPERATION_NAME = 'CreateTransaction';
 
-    public function execute(InnerTransactionEntity $transaction): ?IResponse
+    public function execute(InnerTransaction $transaction): ?IResponse
     {
         /**
          * После регистрации операции, все классы будут подргужаться из папки CreateTransaction,

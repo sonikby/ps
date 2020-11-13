@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 interface IHydrator
 {
-    public function hydrate(InnerTransactionEntity $obj): array;
-    public function revert(array $arr): IResponse;
+    public function extract(InnerTransactionEntity $obj): IOutput;
+    public function revert(IInput $input): IResponse;
 }
