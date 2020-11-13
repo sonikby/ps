@@ -12,7 +12,7 @@ class SolutronController
     }
 
     /**
-     * payments/solutron/create-transaction
+     * payments/solutron/create-transaction/
      */
     public function createTransaction(Invoice $invoice)
     {
