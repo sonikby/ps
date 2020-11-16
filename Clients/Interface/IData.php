@@ -10,4 +10,5 @@ interface IData
     public function getArray(): ?array;
     public function getObject();
     public function getString(): ?string;
+    public function setArray(array $arr): Array;
 }
