@@ -1,9 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 interface IFormatter
 {
-    public function encode(array $arr): string;
-    public function decode(string $str): array;
+    public function encode(IInput $input): IOutput;
+    public function decode(IInput $input): IOutput;
 }
