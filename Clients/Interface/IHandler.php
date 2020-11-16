@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-interface IHandler extends IFormatter
+interface IHandler
 {
-    public function execute(IRequest $request): ?string;
-    public function isOperation(): bool;
+    public function execute(IRequest $request): ?IData;
+    public function isExecute(): bool;
 }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class DataAbstract implements IData
+class DataTransfer implements IData
 {
     protected $data;
 
@@ -43,5 +43,26 @@ class DataAbstract implements IData
             return null;
         }
         return $this->data;
+    }
+
+    public function setArray(array $arr): void
+    {
+        $this->data = $arr;
+    }
+
+    public function setObject($object): void
+    {
+       if (is_object($object) === false) {
+           /*
+            * todo Exception typeof
+            */
+           return;
+       }
+       $this->data = $object;
+    }
+
+    public function setString(string $string): void
+    {
+        $this->data = $string;
     }
 }

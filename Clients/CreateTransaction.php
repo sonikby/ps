@@ -17,21 +17,30 @@ class CreateTransaction extends AbstractCommand
         /**
          * Проверка на то, есть ли данная операция у ПС, либо ее нет
          */
-        if ($handler->isOperation() === false) {
+        if ($handler->isExecute() === false) {
             return null;
         }
         $hydrator = $this->paymentProcessor->hydrator();
         $formatter = $this->paymentProcessor->formatter();
         /**
-         * Преобразуем транзакцию в необходимый масссив
+         * Преобразуем транзакцию в объект DataTransfer
          */
-        $arr = $hydrator->extract($transaction);
+        $dataTransfer = $hydrator->extract($transaction);
         /**
-         * Форматируем строку в нужный тип
+         * Форматируем
          */
-        $str = $formatter->encode($arr);
-        $request = new Request($transaction, $str);
+        $dataTransfer = $formatter->encode($dataTransfer);
+        /**
+         * Создаем объект Request
+         */
+        $request = new Request($transaction, $dataTransfer);
+        /**
+         * Выполняем операцию
+         */
         $response = $handler->execute($request);
+        /**
+         * Декодируем
+         */
         $response = $formatter->decode($response);
         return $hydrator->hydrate($response);
     }

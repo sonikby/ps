@@ -2,6 +2,6 @@
 
 interface IFormatter
 {
-    public function encode(IInput $input): IOutput;
-    public function decode(IInput $input): IOutput;
+    public function encode(IData $input): IData;
+    public function decode(IData $input): IData;
 }
