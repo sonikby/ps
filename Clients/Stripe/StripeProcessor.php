@@ -12,10 +12,13 @@ class StripeProcessor extends AbstractPaymentProcessor
         return self::PAYMENT_NAME;
     }
 
+    /**
+     * More ditails doc: https://github.com/stripe/stripe-php
+     *
+     * @return object
+     */
     public function getSdk(): object
     {
-        /**
-         *
-         */
+       return new \Stripe\StripeClient('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
     }
 }

@@ -39,4 +39,9 @@ class InnerTransactionEntity
     {
         return '';
     }
+
+    public function currency(): string
+    {
+        return '';
+    }
 }
