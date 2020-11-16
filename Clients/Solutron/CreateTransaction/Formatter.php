@@ -4,13 +4,25 @@ declare(strict_types=1);
 
 class Formatter implements IFormatter
 {
-    public function encode(array $arr): string
+    public function encode(IData $data): IData
     {
-        return json_encode($arr);
+        if ($data->isArray() === false) {
+            /**
+             * @todo Exception typeof
+             */
+        }
+        $data->setString(json_encode($data->getArray()));
+        return $data;
     }
 
-    public function decode(string $str): array
+    public function decode(IData $data): IData
     {
-        return json_decode($str, true);
+        if ($data->isString() === false) {
+            /**
+             * @todo Exception typeof
+             */
+        }
+        $data->setString(json_decode($data->getString()));
+        return $data;
     }
 }
