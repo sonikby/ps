@@ -7,7 +7,7 @@ class Request implements IRequest
     protected $transaction;
     protected $request;
 
-    public function __construct(InnerTransactionEntity $transaction, string $request)
+    public function __construct(InnerTransactionEntity $transaction, IOutput $request)
     {
         $this->transaction = $transaction;
         $this->request = $request;
@@ -18,7 +18,7 @@ class Request implements IRequest
         return $this->transaction;
     }
 
-    public function getRequest(): string
+    public function getRequest(): IOutput
     {
         return $this->request;
     }

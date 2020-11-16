@@ -6,7 +6,7 @@ class CreateTransaction extends AbstractCommand
 {
     const OPERATION_NAME = 'CreateTransaction';
 
-    public function execute(InnerTransaction $transaction): ?IResponse
+    public function execute(InnerTransactionEntity $transaction): ?IResponse
     {
         /**
          * После регистрации операции, все классы будут подргужаться из папки CreateTransaction,
@@ -25,7 +25,7 @@ class CreateTransaction extends AbstractCommand
         /**
          * Преобразуем транзакцию в необходимый масссив
          */
-        $arr = $hydrator->hydrate($transaction);
+        $arr = $hydrator->extract($transaction);
         /**
          * Форматируем строку в нужный тип
          */
@@ -33,6 +33,6 @@ class CreateTransaction extends AbstractCommand
         $request = new Request($transaction, $str);
         $response = $handler->execute($request);
         $response = $formatter->decode($response);
-        return $hydrator->revert($response);
+        return $hydrator->hydrate($response);
     }
 }
