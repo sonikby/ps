@@ -11,5 +11,5 @@ abstract class AbstractCommand
         $this->paymentProcessor = $paymentProcessor;
     }
 
-    public abstract function execute(InnerTransactionEntity $transaction): ?IResponse;
+    abstract public function execute(InnerTransactionEntity $transaction): ?IResponse;
 }

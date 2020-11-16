@@ -8,7 +8,7 @@ class Index
     public function solutronIndex()
     {
        $transaction =  $this->db->execute('select * from transaction where invoce = 1');
-
+       // DTO
        $innerTransaction = new InnerTransaction();
 
        $innerTransaction->setAmount($transaction->amount);
@@ -21,8 +21,8 @@ class Index
            $productList[] = $product;
        }
        $innerTransaction->setProductList($productList);
-       $processer = new SolutronProcessor();
-       $command  = new CreateTransaction($processer);
+       $processor = new SolutronProcessor();
+       $command  = new CreateTransaction($processor);
        $response = $command->execute($innerTransaction);
         /**
          * @todo
@@ -35,8 +35,8 @@ class Index
     public function index2()
     {
         $transaction =  $this->db->execute('select * from transaction where invoce = 1');
-        $processer = new SolutronProcessor();
-        $command  = new CreateTransaction($processer);
+        $processor = new SolutronProcessor();
+        $command  = new CreateTransaction($processor);
         /**
          * validation
          */
@@ -52,8 +52,8 @@ class Index
     public function index3()
     {
         $transaction =  $this->db->execute('select * from transaction where invoce = 1');
-        $processer = new SolutronProcessor();
-        $command  = new CreateTransaction($processer);
+        $processor = new SolutronProcessor();
+        $command  = new CreateTransaction($processor);
         $command->execute($transaction);
     }
 }
