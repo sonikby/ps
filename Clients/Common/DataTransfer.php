@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Проверка типов (см Hydrator)
+ */
 declare(strict_types=1);
 
 class DataTransfer implements IData

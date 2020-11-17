@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Внутренняя траназакция (= записи в тбл)
+ * Class InnerTransactionEntity
+ */
 class InnerTransactionEntity
 {
 

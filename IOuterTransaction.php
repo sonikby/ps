@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Внешняя транзакци
+ *
+ * Interface IOuterTransaction
+ */
 interface IOuterTransaction
 {
     //public function getStatus(): string;

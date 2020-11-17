@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 abstract class AbstractCommand
 {
+    /**
+     * @var IPaymentProcessor
+     */
     protected $paymentProcessor;
 
     public function __construct(IPaymentProcessor $paymentProcessor)

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 class CreateTransaction extends AbstractCommand
 {
-    const OPERATION_NAME = 'CreateTransaction';
+    public const OPERATION_NAME = 'CreateTransaction';
 
     public function execute(InnerTransactionEntity $transaction): ?IResponse
     {

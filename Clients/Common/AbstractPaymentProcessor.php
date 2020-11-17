@@ -18,26 +18,26 @@ abstract class AbstractPaymentProcessor implements IPaymentProcessor
 
     abstract public function getSdk(): object;
 
-    public function getPath():string
+    public function getPath(): string
     {
-        return $this->path.'/'.$this->getPaymentSystem().'/'.$this->operation;
+        return $this->path . '/' . $this->getPaymentSystem() . '/' . $this->operation;
     }
 
     public function hydrator(): IHydrator
     {
-        $class = $this->getPath().'/'.self::HYDRATOR_NAME;
+        $class = $this->getPath() . '/' . self::HYDRATOR_NAME;
         return new $class;
     }
 
     public function formatter(): IFormatter
     {
-        $class = $this->getPath().'/'.self::FORMATTER_NAME;
+        $class = $this->getPath() . '/' . self::FORMATTER_NAME;
         return new $class;
     }
 
     public function handler(): IHandler
     {
-        $class = $this->getPath().'/'.self::HANDLER_NAME;
+        $class = $this->getPath() . '/' . self::HANDLER_NAME;
         return new $class;
     }
 

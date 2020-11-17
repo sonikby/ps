@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 class Hydrator implements IHydrator
 {
-
     public function hydrate(IData $obj): Response
     {
         $response = new Response();
@@ -22,8 +21,6 @@ class Hydrator implements IHydrator
         }
 
         $response->setResponse($arr);
-
-
 
         /**
          * @todo Заполнениие IOuterTransaction
